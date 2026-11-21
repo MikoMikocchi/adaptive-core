@@ -1,0 +1,21 @@
+plugins {
+    `java-library`
+    kotlin("jvm")
+    kotlin("plugin.serialization")
+}
+
+kotlin {
+    jvmToolchain(21)
+}
+
+dependencies {
+    api("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
+    testImplementation(kotlin("test"))
+}
+
+tasks.test {
+    useJUnitPlatform()
+    testLogging {
+        events("passed", "failed", "skipped")
+    }
+}
